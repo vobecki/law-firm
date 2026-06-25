@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kariuki & Associates | Advocates & Legal Consultants</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0A1628;
+      --navy-md: #112240;
+      --navy-lt: #1A3A6B;
+      --gold:    #B8962E;
+      --gold-lt: #D4AF5A;
+      --cream:   #F8F5EE;
+      --warm:    #F2EDE3;
+      --white:   #FFFFFF;
+      --gray:    #6B7280;
+      --lgray:   #E5E0D5;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      overflow-x: hidden;
+    }
+
+    /* ── TOP BAR ── */
+    .top-bar {
+      background: var(--navy);
+      padding: 0.5rem 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.05em;
+    }
+
+    .top-bar a { color: var(--gold-lt); text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6%;
+      height: 76px;
+      background: var(--white);
+      border-bottom: 3px solid var(--gold);
+      box-shadow: 0 2px 20px rgba(10,22,40,0.08);
+    }
+
+    .nav-logo-wrap { display: flex; flex-direction: column; }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-tagline {
+      font-size: 0.62rem;
+      color: var(--gray);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    .nav-cta {
+      background: var(--navy) !important;
+      color: var(--white) !important;
+      padding: 0.6rem 1.4rem;
+      font-size: 0.8rem !important;
+      font-weight: 600 !important;
+      border: 2px solid var(--navy);
+      transition: background 0.2s, color 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold) !important;
+      border-color: var(--gold) !important;
+      color: var(--navy) !important;
+    }
+
+    .nav-cta::after { display: none !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      background: var(--navy);
+      padding: 5rem 6%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(184,150,46,0.08), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-left::after {
+      content: '§';
+      position: absolute;
+      bottom: -60px; right: -20px;
+      font-size: 18rem;
+      color: rgba(184,150,46,0.04);
+      font-family: 'Playfair Display', serif;
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 28px; height: 1px;
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero h1 em { font-style: italic; color: var(--gold-lt); }
+
+    .hero-sub {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.95rem;
+      line-height: 1.85;
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+      padding: 0.9rem 2rem;
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-gold:hover { background: var(--gold-lt); transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      padding: 0.9rem 2rem;
+      font-weight: 500;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.25);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-credentials {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .credential {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .credential-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .credential-label {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Hero right image */
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.6) saturate(0.8);
+    }
+
+    .hero-right-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--navy) 0%, transparent 30%);
+    }
+
+    /* ── PRACTICE AREAS ── */
+    .practice { background: var(--cream); padding: 6rem 6%; }
+
+    .section-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .section-badge::before {
+      content: '';
+      width: 24px; height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title em { font-style: italic; color: var(--gold); }
+
+    .section-sub {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.85;
+      max-width: 500px;
+      margin-bottom: 3.5rem;
+      font-weight: 300;
+    }
+
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1px;
+      background: var(--lgray);
+      border: 1px solid var(--lgray);
+    }
+
+    .practice-card {
+      background: var(--white);
+      padding: 2.2rem 2rem;
+      transition: background 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .practice-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--gold);
+      transform: scaleY(0);
+      transition: transform 0.25s;
+      transform-origin: bottom;
+    }
+
+    .practice-card:hover { background: var(--navy); }
+    .practice-card:hover::before { transform: scaleY(1); }
+    .practice-card:hover .pc-icon { color: var(--gold); }
+    .practice-card:hover .pc-title { color: var(--white); }
+    .practice-card:hover .pc-desc { color: rgba(255,255,255,0.5); }
+
+    .pc-icon { font-size: 1.8rem; margin-bottom: 1rem; color: var(--navy-lt); transition: color 0.25s; }
+    .pc-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+      transition: color 0.25s;
+    }
+
+    .pc-desc { font-size: 0.86rem; color: var(--gray); line-height: 1.75; font-weight: 300; transition: color 0.25s; }
+
+    /* ── ABOUT ── */
+    .about { background: var(--warm); padding: 6rem 6%; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-img-wrap { position: relative; }
+
+    .about-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-img-badge {
+      position: absolute;
+      bottom: -2rem;
+      right: -2rem;
+      background: var(--gold);
+      padding: 1.5rem;
+      text-align: center;
+      min-width: 120px;
+    }
+
+    .about-img-badge-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .about-img-badge-text {
+      font-size: 0.68rem;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.3rem;
+    }
+
+    .about-right { padding-left: 2rem; }
+
+    .about-right p {
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-values {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .about-value {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .av-icon {
+      width: 36px; height: 36px;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .av-text strong { display: block; font-size: 0.88rem; font-weight: 600; color: var(--navy); margin-bottom: 0.2rem; }
+    .av-text span { font-size: 0.82rem; color: var(--gray); font-weight: 300; }
+
+    /* ── TEAM ── */
+    .team { background: var(--navy); padding: 6rem 6%; }
+    .team .section-title { color: var(--white); }
+    .team .section-sub { color: rgba(255,255,255,0.45); }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .team-card {
+      background: var(--navy-md);
+      border: 1px solid rgba(184,150,46,0.15);
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+
+    .team-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+
+    .team-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(30%);
+      transition: filter 0.3s;
+    }
+
+    .team-card:hover .team-img { filter: grayscale(0%); }
+
+    .team-body { padding: 1.5rem; }
+
+    .team-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .team-role { font-size: 0.78rem; color: var(--gold); font-weight: 500; margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+    .team-spec { font-size: 0.8rem; color: rgba(255,255,255,0.35); font-weight: 300; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: var(--cream); padding: 6rem 6%; }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .testi-card {
+      background: var(--white);
+      padding: 2.2rem;
+      border: 1px solid var(--lgray);
+      border-top: 3px solid var(--gold);
+      position: relative;
+    }
+
+    .testi-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      color: var(--gold);
+      line-height: 0.6;
+      margin-bottom: 1rem;
+      opacity: 0.3;
+    }
+
+    .testi-text {
+      font-size: 0.9rem;
+      color: #374151;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .testi-divider { width: 28px; height: 1px; background: var(--gold); margin-bottom: 1rem; }
+    .testi-name { font-weight: 600; font-size: 0.85rem; color: var(--navy); }
+    .testi-role { font-size: 0.76rem; color: var(--gray); font-weight: 300; }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: var(--gold);
+      padding: 4rem 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .cta-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+      max-width: 500px;
+    }
+
+    .cta-banner h2 em { font-style: italic; }
+
+    .btn-navy {
+      background: var(--navy);
+      color: var(--white);
+      padding: 0.95rem 2rem;
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-navy:hover { background: var(--navy-md); }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--warm); padding: 6rem 6%; }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-item { display: flex; gap: 1rem; margin-bottom: 1.3rem; align-items: flex-start; }
+
+    .ci-icon {
+      width: 40px; height: 40px;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .ci-text strong { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray); margin-bottom: 0.2rem; }
+    .ci-text span { font-size: 0.92rem; color: var(--navy); font-weight: 500; }
+
+    .contact-form {
+      background: var(--navy);
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .contact-form h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    .form-group label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.8rem 1rem;
+      border: 1px solid rgba(184,150,46,0.2);
+      background: rgba(255,255,255,0.05);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.2); }
+    .form-group select option { background: var(--navy); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy); padding: 4rem 6% 2rem; }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(184,150,46,0.15);
+      margin-bottom: 2rem;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .footer-logo span { color: var(--gold); }
+    .footer-tagline { font-size: 0.68rem; color: rgba(255,255,255,0.3); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; }
+    .footer-brand p { font-size: 0.82rem; color: rgba(255,255,255,0.3); line-height: 1.8; font-weight: 300; max-width: 260px; }
+
+    .footer-col h4 { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: var(--gold); margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-col a { font-size: 0.82rem; color: rgba(255,255,255,0.3); text-decoration: none; font-weight: 300; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--gold); }
+
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.2); font-weight: 300; }
+
+    .wa-float {
+      position: fixed;
+      bottom: 1.5rem; right: 1.5rem;
+      background: #25D366;
+      color: var(--white);
+      width: 54px; height: 54px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+      z-index: 200;
+      transition: transform 0.2s;
+    }
+
+    .wa-float:hover { transform: scale(1.1); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-right { padding-left: 0; }
+      .about-img-badge { right: 1rem; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
+      .testi-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .top-bar { display: none; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .cta-banner { text-align: center; justify-content: center; }
+      .footer-top { grid-template-columns: 1fr; }
+      .hero-left { padding: 4rem 6%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <span>📍 Upper Hill, Nairobi, Kenya</span>
+  <span>Mon – Fri: 8:00 AM – 6:00 PM</span>
+  <a href="tel:+254700000000">📞 +254 700 000 000</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo-wrap">
+    <div class="nav-logo">Kariuki <span>&</span> Associates</div>
+    <div class="nav-tagline">Advocates & Legal Consultants</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#practice">Practice Areas</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#team">Our Team</a></li>
+    <li><a href="#contact" class="nav-cta">Free Consultation</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">Nairobi's Trusted Legal Advocates</div>
+    <h1>Justice. <em>Integrity.</em><br/>Excellence.</h1>
+    <p class="hero-sub">Kariuki & Associates provides expert legal representation across corporate law, property, family, and litigation. Protecting your rights with decades of proven experience.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-gold">Free Consultation</a>
+      <a href="#practice" class="btn-outline">Our Practice Areas</a>
+    </div>
+    <div class="hero-credentials">
+      <div class="credential">
+        <div class="credential-num">20+</div>
+        <div class="credential-label">Years Practice</div>
+      </div>
+      <div class="credential">
+        <div class="credential-num">1,200+</div>
+        <div class="credential-label">Cases Won</div>
+      </div>
+      <div class="credential">
+        <div class="credential-num">8</div>
+        <div class="credential-label">Senior Advocates</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://image.pollinations.ai/prompt/grand%20Kenyan%20law%20firm%20office%20interior%20tall%20bookshelves%20law%20books%20dark%20mahogany%20wood%20elegant%20gold%20accents%20dramatic%20window%20light%20no%20people%20photorealistic%20luxury%20interior%20photography%20cinematic%20no%20text%20no%20watermark?width=900&height=1000&seed=701&nologo=true" alt="Law firm office"/>
+    <div class="hero-right-overlay"></div>
+  </div>
+</section>
+
+<!-- PRACTICE AREAS -->
+<section class="practice" id="practice">
+  <div class="section-badge">Our Expertise</div>
+  <h2 class="section-title">Practice <em>Areas</em></h2>
+  <p class="section-sub">We offer comprehensive legal services across all major areas of Kenyan law — with the depth and experience to deliver results.</p>
+  <div class="practice-grid">
+    <div class="practice-card">
+      <div class="pc-icon">🏢</div>
+      <div class="pc-title">Corporate & Commercial Law</div>
+      <p class="pc-desc">Company formation, contracts, mergers, acquisitions, and ongoing corporate governance for businesses of all sizes.</p>
+    </div>
+    <div class="practice-card">
+      <div class="pc-icon">🏠</div>
+      <div class="pc-title">Property & Conveyancing</div>
+      <p class="pc-desc">Land transfers, title deed processing, property disputes, leases, and all real estate transactions in Kenya.</p>
+    </div>
+    <div class="practice-card">
+      <div class="pc-icon">⚖️</div>
+      <div class="pc-title">Civil Litigation</div>
+      <p class="pc-desc">Robust court representation for civil disputes, debt recovery, breach of contract, and injunctions.</p>
+    </div>
+    <div class="practice-card">
+      <div class="pc-icon">👨‍👩‍👧</div>
+      <div class="pc-title">Family Law</div>
+      <p class="pc-desc">Divorce, child custody, succession, adoption, and matrimonial property — handled with sensitivity and care.</p>
+    </div>
+    <div class="practice-card">
+      <div class="pc-icon">📋</div>
+      <div class="pc-title">Employment Law</div>
+      <p class="pc-desc">Employment contracts, wrongful dismissal, labour disputes, and HR compliance for employers and employees.</p>
+    </div>
+    <div class="practice-card">
+      <div class="pc-icon">🛡️</div>
+      <div class="pc-title">Criminal Defense</div>
+      <p class="pc-desc">Expert criminal defense representation at all levels of the Kenyan court system, from magistrate to Supreme Court.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap">
+      <img src="https://image.pollinations.ai/prompt/elegant%20law%20firm%20library%20room%20floor%20to%20ceiling%20mahogany%20bookshelves%20leather%20bound%20law%20books%20warm%20lamp%20light%20classic%20wooden%20desk%20no%20people%20photorealistic%20luxury%20interior%20cinematic%20warm%20tones%20no%20text%20no%20watermark?width=700&height=900&seed=702&nologo=true" alt="Law firm library" class="about-img"/>
+      <div class="about-img-badge">
+        <div class="about-img-badge-num">20+</div>
+        <div class="about-img-badge-text">Years of<br/>Excellence</div>
+      </div>
+    </div>
+    <div class="about-right">
+      <div class="section-badge">About the Firm</div>
+      <h2 class="section-title">A Legacy of <em>Legal Excellence</em></h2>
+      <p>Kariuki & Associates was founded with a singular mission — to provide Kenyans with access to the highest quality legal representation, regardless of the complexity of their matter.</p>
+      <p>With over two decades of practice across Nairobi's High Court, Court of Appeal, and Supreme Court, our team has built a reputation for meticulous preparation, strategic thinking, and unwavering advocacy on behalf of our clients.</p>
+      <div class="about-values">
+        <div class="about-value">
+          <div class="av-icon">⚖️</div>
+          <div class="av-text">
+            <strong>Integrity First</strong>
+            <span>We never compromise our ethics. Our clients trust us with their most sensitive matters.</span>
+          </div>
+        </div>
+        <div class="about-value">
+          <div class="av-icon">🎯</div>
+          <div class="av-text">
+            <strong>Results Focused</strong>
+            <span>We measure our success by your outcomes — not billable hours.</span>
+          </div>
+        </div>
+        <div class="about-value">
+          <div class="av-icon">🤝</div>
+          <div class="av-text">
+            <strong>Client Partnership</strong>
+            <span>You are kept informed at every stage. No surprises, no jargon.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="section-badge">Our Advocates</div>
+  <h2 class="section-title" style="color:var(--white)">Meet the <em style="color:var(--gold)">Team</em></h2>
+  <p class="section-sub">Experienced advocates dedicated to achieving the best possible outcome for every client.</p>
+  <div class="team-grid">
+    <div class="team-card">
+      <img src="https://image.pollinations.ai/prompt/professional%20portrait%20confident%20African%20male%20lawyer%20dark%20suit%20white%20shirt%20tie%20neutral%20studio%20background%20soft%20lighting%20photorealistic%20headshot%20no%20text%20no%20watermark?width=500&height=650&seed=801&nologo=true" alt="Senior Partner" class="team-img"/>
+      <div class="team-body">
+        <div class="team-name">James Kariuki, SC</div>
+        <div class="team-role">Senior Counsel & Founding Partner</div>
+        <div class="team-spec">Corporate Law · Litigation</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <img src="https://image.pollinations.ai/prompt/professional%20portrait%20confident%20African%20female%20lawyer%20dark%20blazer%20professional%20attire%20neutral%20studio%20background%20soft%20lighting%20photorealistic%20headshot%20no%20text%20no%20watermark?width=500&height=650&seed=802&nologo=true" alt="Partner" class="team-img"/>
+      <div class="team-body">
+        <div class="team-name">Grace Wambui, Advocate</div>
+        <div class="team-role">Partner</div>
+        <div class="team-spec">Family Law · Succession</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <img src="https://image.pollinations.ai/prompt/professional%20portrait%20African%20male%20lawyer%20suit%20glasses%20confident%20expression%20neutral%20studio%20background%20professional%20lighting%20photorealistic%20headshot%20no%20text%20no%20watermark?width=500&height=650&seed=803&nologo=true" alt="Associate" class="team-img"/>
+      <div class="team-body">
+        <div class="team-name">Peter Odhiambo, Advocate</div>
+        <div class="team-role">Senior Associate</div>
+        <div class="team-spec">Property Law · Conveyancing</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <img src="https://image.pollinations.ai/prompt/professional%20portrait%20young%20African%20female%20lawyer%20professional%20blazer%20confident%20smile%20neutral%20studio%20background%20soft%20professional%20lighting%20photorealistic%20headshot%20no%20text%20no%20watermark?width=500&height=650&seed=804&nologo=true" alt="Associate" class="team-img"/>
+      <div class="team-body">
+        <div class="team-name">Amina Hassan, Advocate</div>
+        <div class="team-role">Associate</div>
+        <div class="team-spec">Employment Law · Commercial</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-badge">Client Testimonials</div>
+  <h2 class="section-title">What Our Clients <em>Say</em></h2>
+  <p class="section-sub">Real feedback from clients we have represented across Kenya.</p>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Kariuki & Associates handled our company acquisition with exceptional professionalism. Every detail was covered and we closed without a single legal complication.</p>
+      <div class="testi-divider"></div>
+      <div class="testi-name">David M.</div>
+      <div class="testi-role">CEO, Nairobi Manufacturing Co.</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">I was facing a very difficult property dispute. James and his team fought tirelessly for two years and we won. I cannot recommend them highly enough.</p>
+      <div class="testi-divider"></div>
+      <div class="testi-name">Margaret W.</div>
+      <div class="testi-role">Property Owner, Karen</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Grace handled my divorce with such sensitivity and efficiency. A very difficult time made bearable by a truly professional and compassionate advocate.</p>
+      <div class="testi-divider"></div>
+      <div class="testi-name">Anonymous</div>
+      <div class="testi-role">Family Law Client, Nairobi</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <h2>Need Legal Advice? <em>Get a Free Consultation Today.</em></h2>
+  <a href="#contact" class="btn-navy">Book Free Consultation</a>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-badge">Get In Touch</div>
+  <h2 class="section-title">Schedule a <em>Consultation</em></h2>
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <h3>Our Office</h3>
+      <div class="contact-item">
+        <div class="ci-icon">📞</div>
+        <div class="ci-text"><strong>Phone / WhatsApp</strong><span>+254 700 000 000</span></div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">✉️</div>
+        <div class="ci-text"><strong>Email</strong><span>info@kariukilaw.co.ke</span></div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">📍</div>
+        <div class="ci-text"><strong>Address</strong><span>Upper Hill, Nairobi<br/>Kenya Re Towers, 5th Floor</span></div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">🕐</div>
+        <div class="ci-text"><strong>Office Hours</strong><span>Mon – Fri: 8:00 AM – 6:00 PM<br/>Sat: 9:00 AM – 1:00 PM</span></div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3>Book a Consultation</h3>
+      <div class="form-row">
+        <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your full name"/></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+254 700 000 000"/></div>
+      </div>
+      <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"/></div>
+      <div class="form-group">
+        <label>Legal Matter</label>
+        <select>
+          <option>Select practice area...</option>
+          <option>Corporate & Commercial Law</option>
+          <option>Property & Conveyancing</option>
+          <option>Civil Litigation</option>
+          <option>Family Law</option>
+          <option>Employment Law</option>
+          <option>Criminal Defense</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Brief Description</label>
+        <textarea placeholder="Briefly describe your legal matter — all information is strictly confidential..."></textarea>
+      </div>
+      <button class="btn-gold" style="width:100%; padding:1rem; font-size:0.82rem; letter-spacing:0.1em;">Request Consultation</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">Kariuki <span>&</span> Associates</div>
+      <div class="footer-tagline">Advocates & Legal Consultants</div>
+      <p>Providing expert legal representation across Kenya since 2004. Offices in Nairobi. Licensed by the Law Society of Kenya.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Practice Areas</h4>
+      <ul>
+        <li><a href="#">Corporate Law</a></li>
+        <li><a href="#">Property Law</a></li>
+        <li><a href="#">Civil Litigation</a></li>
+        <li><a href="#">Family Law</a></li>
+        <li><a href="#">Criminal Defense</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>The Firm</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Team</a></li>
+        <li><a href="#">Our Approach</a></li>
+        <li><a href="#">Testimonials</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#">+254 700 000 000</a></li>
+        <li><a href="#">info@kariukilaw.co.ke</a></li>
+        <li><a href="#">Upper Hill, Nairobi</a></li>
+        <li><a href="#">Mon–Fri 8AM–6PM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Kariuki & Associates Advocates. All rights reserved. Licensed by the Law Society of Kenya.</p>
+    <p class="footer-copy">Confidentiality guaranteed on all matters.</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/254700000000" target="_blank" class="wa-float">💬</a>
+
+</body>
+</html>
